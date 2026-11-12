@@ -1,67 +1,19 @@
-# Google Play Store Analysis
+# Google Play Store analysis
 
-## Overview:
-This project is an analysis of the Google Play Store data, examining various aspects of app categories, ratings, reviews, and more.
+This Python analysis explores a historical snapshot of Google Play listings and reviews. The notebook cleans the listings, compares ratings, prices and reported install thresholds, and joins listings to scored reviews to compare sentiment across free and paid apps.
 
-## Problem Statement:
-The objective of this analysis is to uncover insights and trends within the Google Play Store data, aiding app developers, marketers, and stakeholders in making data-driven decisions.
+## Results from the supplied snapshot
 
-## Files:
-- [apps.csv](https://github.com/seagle011/google-play-store-analysis/files/15348585/apps.csv): Contains all the details of the applications on Google Play. There are 13 features that describe a given app. The dataset includes the following columns:
-  - `App`: Name of the app.
-  - `Category`: Category to which the app belongs.
-  - `Rating`: Average user rating of the app (out of 5).
-  - `Reviews`: Number of user reviews for the app.
-  - `Size`: Size of the app in megabytes (MB).
-  - `Installs`: Number of installs of the app.
-  - `Type`: Type of the app (e.g., Free, Paid).
-  - `Price`: Price of the app 
-(if applicable).
-  - `Content Rating`: Content rating of the app (e.g., Everyone, Teen, Mature 17+, etc.).
-  - `Genres`: Genres associated with the app.
-  - `Last Updated`: Date when the app was last updated.
-  - `Current Ver`: Current version of the app.
-  - `Android Ver`: Minimum required Android version.
+- Of 9,659 app records, 8,196 had usable ratings. Their mean rating was 4.17 out of 5.
+- Median reported install thresholds were 100,000 for free apps and 1,000 for paid apps. These are lower bounds displayed by the data source, not exact install counts.
+- The sentiment comparison matched 35,934 scored reviews to 816 apps, including only 9 paid apps. The scores are supplied by the dataset and the reviews are selected. This comparison cannot establish a difference in app quality.
 
-- [user_reviews.csv](https://github.com/seagle011/google-play-store-analysis/files/15348602/user_reviews.csv)
-: contains 100 reviews for each app, most helpful first. The text in each review has been pre-processed and attributed with three new features: Sentiment (Positive, Negative or Neutral), Sentiment Polarity and Sentiment Subjectivity. The dataset includes the following columns:
-  - `App`: Name of the app.
-  - `Review`: User review text.
-  - `Sentiment`: Sentiment of the review (Positive, Negative, Neutral).
-  - `Sentiment_Polarity`: Polarity score of the sentiment.
-  - `Sentiment_Subjectivity`: Subjectivity score of the sentiment.
+## Run the analysis
 
+- **Colab or Kaggle:** Upload `Play Store Analytics.ipynb`, enable internet access if necessary, and run all cells. If the CSVs aren't in the working directory, the notebook downloads them from a fixed revision of the original repository. In an offline session, put `apps.csv` and `user_reviews.csv` there instead.
+- **Local Jupyter:** Run `python -m pip install -r requirements.txt` in your environment. Open the notebook from this folder and run all cells.
 
-## Data Sources:
-The datasets used in this analysis were obtained from [Kaggle](https://www.kaggle.com/datasets/lava18/google-play-store-apps/data), and encompass information on app names, categories, ratings, prices, user reviews, and additional attributes.
+## Sources
 
-## Tools and Libraries:
-- Python
-- pandas
-- matplotlib
-- seaborn
-- plotly
-
-## Analysis Steps:
-1. Data Cleaning: Handling missing values, duplicates, etc.
-2. Exploratory Data Analysis: Examining app categories, ratings, prices, etc.
-3. Insights Derived: Identifying patterns, correlations, and notable findings from the data.
-
-## Key Findings:
-- The average volume of ratings across all app categories is 4.17. The histogram plot is skewed to the left indicating that the majority of the apps are highly rated with only a few exceptions in the low-rated apps.
-- The majority of top rated apps (rating over 4) range from 2 MB to 20 MB.
-- The vast majority of apps price themselves under $10.
-- Paid apps have a relatively lower number of installs than free apps, though the difference is not as stark as one would expect.
-- When we visualize the sentiment polarity scores of user reviews for both paid and free apps, a notable trend emerges: free apps tend to attract more critical feedback, evident from the outliers clustered along the negative y-axis. Conversely, reviews for paid apps seldom exhibit extreme negativity. This observation hints at a potential disparity in app quality, suggesting that paid apps generally maintain a higher standard compared to their free counterparts.
-
-## Visualizations:
-- ![Average Rating](https://github.com/seagle011/google-play-store-analysis/assets/106632972/3d35f56b-811a-42da-8ec3-a102055827e7)
-- 
-- ![Size vs Rating](https://github.com/seagle011/google-play-store-analysis/assets/106632972/70ada903-d745-4c6d-b8e4-97fbc0598517)
-
-- ![Price vs Rating](https://github.com/seagle011/google-play-store-analysis/assets/106632972/be24ada9-d861-4084-835b-ae2300c4cd92)
-
-- ![Downloads of Paid vs Free](https://github.com/seagle011/google-play-store-analysis/assets/106632972/0bd9a59a-5b53-46de-bf2d-3c3cb118530e)
-- ![Sentiment Polarity Distribution](https://github.com/seagle011/google-play-store-analysis/assets/106632972/46f4fa00-4525-4afe-9b52-b5995bd070e2)
-
-
+- Project source: DataCamp, [The Android App Market on Google Play](https://www.datacamp.com/projects/619).
+- Data: [Lavanya Gupta, Google Play Store Apps](https://www.kaggle.com/datasets/lava18/google-play-store-apps), listed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The notebook uses the CSV snapshots from the [original repository](https://github.com/seagle011/google-play-store-analysis).
