@@ -14,6 +14,4 @@ This Python analysis explores a historical snapshot of Google Play listings and 
 - **Local Jupyter:** Run `python -m pip install -r requirements.txt` in your environment. Open the notebook from this folder and run all cells.
 
 ## Sources
-
-- Project source: DataCamp, [The Android App Market on Google Play](https://www.datacamp.com/projects/619).
 - Data: [Lavanya Gupta, Google Play Store Apps](https://www.kaggle.com/datasets/lava18/google-play-store-apps), listed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The notebook uses the CSV snapshots from the [original repository](https://github.com/seagle011/google-play-store-analysis).
